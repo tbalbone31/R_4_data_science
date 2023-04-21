@@ -51,5 +51,20 @@ ggplot(
   scale_color_colorblind()
 
 #' I think a bar chart would be better than scatterplot
-#' 
 
+#' 5. Why does the following give an error and how would you fix it?
+#' 
+ggplot(data = penguins) + 
+  geom_point()
+
+#' It gives an error because the ggplot function is missing an aesthetics mapping parameter to indicate x and y fields.  This is below.  Hurrah.
+#' 
+ggplot(data = penguins,
+       mapping = aes(x = bill_length_mm , y = bill_depth_mm )) + 
+  geom_point()
+
+#' What does the na.rm argument do in geom_point()? What is the default value of the argument? Create a scatterplot where you successfully use this argument set to TRUE.
+#' 
+ggplot(data = penguins,
+       mapping = aes(x = bill_length_mm , y = bill_depth_mm )) + 
+  geom_point(na.rm = TRUE)
